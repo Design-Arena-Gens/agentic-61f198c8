@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Poster Generator</title>
+  <meta name="description" content="Generate beautiful Instagram posters instantly and download as PNG." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>PosterLab</h1>
+    <div class="header-actions">
+      <button id="shareBtn" class="btn secondary" title="Copy shareable link">Share</button>
+      <a class="btn link" href="https://agentic-61f198c8.vercel.app" target="_blank" rel="noreferrer">Live</a>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="controls" aria-label="Controls">
+      <div class="group">
+        <label>Template</label>
+        <div class="template-row" id="templateRow"></div>
+      </div>
+
+      <div class="group two-col">
+        <div>
+          <label for="formatSelect">Format</label>
+          <select id="formatSelect">
+            <option value="square">Square 1080?1080</option>
+            <option value="portrait" selected>Portrait 1080?1350</option>
+            <option value="story">Story 1080?1920</option>
+          </select>
+        </div>
+        <div>
+          <label for="alignSelect">Text Align</label>
+          <select id="alignSelect">
+            <option value="center" selected>Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="group">
+        <label for="titleInput">Headline</label>
+        <textarea id="titleInput" rows="2" placeholder="Your eye?catching headline"></textarea>
+      </div>
+      <div class="group">
+        <label for="subtitleInput">Subtitle</label>
+        <textarea id="subtitleInput" rows="2" placeholder="Optional supporting text"></textarea>
+      </div>
+      <div class="group two-col">
+        <div>
+          <label for="ctaInput">Footer / CTA</label>
+          <input id="ctaInput" type="text" placeholder="@yourhandle ? www.site.com" />
+        </div>
+        <div>
+          <label for="logoInput">Small Tag</label>
+          <input id="logoInput" type="text" placeholder="LOGO / TAG" />
+        </div>
+      </div>
+
+      <div class="group two-col">
+        <div>
+          <label for="fontSelect">Font</label>
+          <select id="fontSelect">
+            <option value="Inter">Inter</option>
+            <option value="Poppins">Poppins</option>
+            <option value="Playfair Display">Playfair Display</option>
+          </select>
+        </div>
+        <div>
+          <label for="titleSize">Headline Size</label>
+          <input id="titleSize" type="range" min="48" max="180" value="120" />
+        </div>
+      </div>
+
+      <div class="group two-col">
+        <div>
+          <label for="bg1">BG Color 1</label>
+          <input id="bg1" type="color" value="#0ea5e9" />
+        </div>
+        <div>
+          <label for="bg2">BG Color 2</label>
+          <input id="bg2" type="color" value="#7c3aed" />
+        </div>
+      </div>
+
+      <div class="group two-col">
+        <div>
+          <label for="textColor">Text Color</label>
+          <input id="textColor" type="color" value="#ffffff" />
+        </div>
+        <div>
+          <label for="accentColor">Accent Color</label>
+          <input id="accentColor" type="color" value="#f59e0b" />
+        </div>
+      </div>
+
+      <div class="group two-col">
+        <div>
+          <label for="overlayStrength">Overlay</label>
+          <input id="overlayStrength" type="range" min="0" max="90" value="20" />
+        </div>
+        <div>
+          <label for="radius">Corner Radius</label>
+          <input id="radius" type="range" min="0" max="64" value="24" />
+        </div>
+      </div>
+
+      <div class="group">
+        <label for="imageInput">Background Image</label>
+        <div class="row">
+          <input id="imageInput" type="file" accept="image/*" />
+          <button id="clearImageBtn" class="btn subtle" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div class="group row">
+        <button id="randomPaletteBtn" class="btn subtle" type="button">Randomize Palette</button>
+        <div class="spacer"></div>
+        <button id="download1xBtn" class="btn primary" type="button">Download PNG</button>
+        <button id="download2xBtn" class="btn" type="button">Download 2?</button>
+      </div>
+    </section>
+
+    <section class="preview" aria-label="Preview">
+      <div class="canvas-frame">
+        <canvas id="posterCanvas" width="1080" height="1350" aria-label="Poster preview"></canvas>
+      </div>
+      <div class="tips">
+        <span>Tip: Use short headlines. Try templates and colors.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>? PosterLab ? Made for Instagram posters</span>
+    <a href="https://vercel.com" target="_blank" rel="noreferrer">Deploy on Vercel</a>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
